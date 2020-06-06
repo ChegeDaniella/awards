@@ -1,0 +1,11 @@
+{% extends "projects/base.html" %}
+
+{% block content %}
+{% for post in posts %}
+    <p>{{post.title}} </p>
+    <p>{{post.description}} </p>
+    <P>{{post.date_posted}} </P>
+
+{% endfor %}
+
+{% endblock %}
