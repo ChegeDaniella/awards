@@ -2,6 +2,11 @@ from django.shortcuts import render,redirect
 from .models import Posts
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import PostsSerializer
+
+
 def index(request):
     return render(request,'projects/index.html')
 
@@ -51,6 +56,12 @@ class PostDeleteView(UserPassesTestMixin,LoginRequiredMixin,DeleteView):
         if self.request.user == post.designer:
             return True
         return False
+
+class PostsList(APIView):
+    def get(self, request, format=None):
+        all_posts = Posts.objects.all()
+        serlializer = PostsSerializer(all_posts, many=True)
+        return Response(serlializer.data)        
 
     
 
