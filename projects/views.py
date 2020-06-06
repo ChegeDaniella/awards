@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Posts
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, CreateView
 def index(request):
     return render(request,'projects/index.html')
 
@@ -16,4 +16,18 @@ class PostListView(ListView):
     template_name = 'projects/post.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+
+class PostDetailView(DetailView):
+    model = Posts
+
+class PostCreateView(CreateView):
+    model = Posts
+    fields = ['title','description','image_page','link']  
+
+    
+
+ 
+     
+
+
 
