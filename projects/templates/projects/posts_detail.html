@@ -4,4 +4,9 @@
 {{object.date_posted}}
 {{object.title}}
 this are details
+
+{% if object.designer == user %}
+<a href="{% url 'post-Update' object.id %} ">Update</a>
+<a href="{% url 'post-delete' object.id %} ">Delete</a>
+{% endif %}
 {% endblock %}
