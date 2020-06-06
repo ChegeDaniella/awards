@@ -2,6 +2,10 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import Profile
+from .serializer import ProfileSerializers
 
 def register(request):
     if request.method == 'POST':
@@ -35,4 +39,10 @@ def profile(request):
             'p_form':p_form
         }
     return render(request,'users/profile.html', context)    
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        profiles = Profile.objects.all()
+        serializers = ProfileSerializers(profiles, many=True)    
+        return Response(serializers.data)
 
