@@ -38,4 +38,8 @@ class Rates(models.Model):
     usability_rate = models.IntegerField(choices= ratings, default=0)
     content_rate = models.IntegerField(choices= ratings, default=0)
 
+    def __str__(self):
+        self.post
+        
+
           
