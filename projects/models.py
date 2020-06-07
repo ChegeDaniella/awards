@@ -20,6 +20,11 @@ class Posts(models.Model):
     def save_posts(self):
         self.save()    
 
+    def delete_posts(self):
+        self.delete()  
+     
+
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
@@ -65,6 +70,12 @@ class Rates(models.Model):
 
     def __str__(self):
         self.post
+
+    def save_rates(self):
+        self.save()
+
+    def delete_rates(self):
+        self.delete()    
 
     def get_absolute_url(self):
         return reverse('posts')    
