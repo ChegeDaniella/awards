@@ -2,7 +2,7 @@
 
 You can be able to clone and run the application on your local machine.
 
-[Press here to clone](https://github.com/ChegeDaniella/Instagram.git)
+[Press here to clone](https://github.com/ChegeDaniella/awards.git)
 
 ### Prerequisites
 
@@ -41,7 +41,7 @@ Ensure that you have installed all the extensions mentioned above in the envirom
 
 After installation the application should be able to render from the local host.On the terminal run command
 
-![Rendered image](static/img/home1.png)
+![Rendered image]()
 
 ```
 python3.6 manage.py runserver
