@@ -7,7 +7,7 @@ class Posts(models.Model):
     title= models.CharField(max_length = 100)
     image_page = models.ImageField(upload_to='imgpro/')
     description = models.TextField()
-    link = models.CharField(max_length = 200)
+    link = models.URLField (max_length = 200)
     date_posted = models.DateField(auto_now_add=True)
     designer = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -46,6 +46,9 @@ class Rates(models.Model):
 
     def __str__(self):
         self.post
+
+    def get_absolute_url(self):
+        return reverse('posts')    
 
 
           
