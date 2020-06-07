@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from PIL import Image
 
 class Posts(models.Model):
     title= models.CharField(max_length = 100)
@@ -19,4 +20,13 @@ class Posts(models.Model):
     def save_posts(self):
         self.save()    
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
+        img = Image.open(self.image_page.path)
+        if img.height > 300 or img.width>300:
+            output_size = (470,460)
+            img.thumbnail(output_size)
+            img.save(self.image_page.path)
+
+          

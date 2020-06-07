@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'bootstrap3',
     'crispy_forms',
     'rest_framework',
+   
+    
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -138,3 +141,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 LOGIN_REDIRECT_URL = 'index'
 
 LOGIN_URL = 'login'
+

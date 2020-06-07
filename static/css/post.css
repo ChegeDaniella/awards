@@ -1,0 +1,23 @@
+body {
+    background-color: #3c096c;
+    color: antiquewhite;
+}
+img {
+    border-radius: 25px;
+}
+.card {
+    border: solid 2px #3c096c;
+    background-image: linear-gradient(to right, #3c096c , #7b2cbf);
+}
+.home {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.10), rgba(156, 144, 153, 0.73)),url('https://img.freepik.com/free-vector/abstract-splashed-watercolor-textured-background_53876-8753.jpg?size=626&ext=jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 560px;
+    text-align: center;
+    padding-top: 10%;
+}
+h1 {
+    font-family: 'Noto Serif', serif;
+    font-size: 140px;
+}

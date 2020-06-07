@@ -1,12 +1,18 @@
 {% extends 'projects/base.html'%}
+{% load static %}
 
 {% block content %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+{% endblock %}
+
+
 {{object.date_posted}}
 {{object.title}}
 this are details
-
+<br>
 {% if object.designer == user %}
-<a href="{% url 'post-Update' object.id %} ">Update</a>
-<a href="{% url 'post-delete' object.id %} ">Delete</a>
+<a href="{% url 'post-Update' object.id %} "><i class="fas fa-edit"> Update</a></i>
+<a href="{% url 'post-delete' object.id %} "><i class="fas fa-trash-alt">Delete</a></i>
 {% endif %}
 {% endblock %}
