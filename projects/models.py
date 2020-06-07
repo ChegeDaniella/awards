@@ -29,4 +29,13 @@ class Posts(models.Model):
             img.thumbnail(output_size)
             img.save(self.image_page.path)
 
+class Rates(models.Model):
+    ratings= (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)
+
+    post = models.ForeignKey(Posts, related_name='votes', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    design_rate = models.IntegerField(choices= ratings, default=0)
+    usability_rate = models.IntegerField(choices= ratings, default=0)
+    content_rate = models.IntegerField(choices= ratings, default=0)
+
           
