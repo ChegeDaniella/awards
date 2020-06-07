@@ -13,7 +13,7 @@ urlpatterns = [
     # url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='projects')),
     path('post/new/', PostCreateView.as_view(), name="new-post"),
     path('api/posts/', views.PostsList.as_view()),
-
+    url(r'^search/', views.search_results, name='search_results')
 ]
 
 if settings.DEBUG:

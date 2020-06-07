@@ -63,7 +63,18 @@ class PostsList(APIView):
         serlializer = PostsSerializer(all_posts, many=True)
         return Response(serlializer.data)        
 
-    
+def search_results(request):
+    if 'titlPro' in request.GET and request.GET["titlPro"]:
+        search_term = request.GET.get("titlPro")
+        searched_proj = Posts.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'projects/search.html', {"message":message, "posts":searched_proj}) 
+
+    else:
+        message = "You have not searched anything.Please ensure you have searched"
+        return render(request,'projects/search.html', {"message":message})
+
 
  
      

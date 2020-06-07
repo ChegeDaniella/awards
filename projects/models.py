@@ -29,6 +29,12 @@ class Posts(models.Model):
             img.thumbnail(output_size)
             img.save(self.image_page.path)
 
+    @classmethod
+    def search_by_title(cls,search_term):
+        title = cls.objects.filter(title__icontains = search_term)
+        return title
+
+
 class Rates(models.Model):
     ratings= (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)
 
@@ -40,6 +46,6 @@ class Rates(models.Model):
 
     def __str__(self):
         self.post
-        
+
 
           
