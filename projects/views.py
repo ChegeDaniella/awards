@@ -1,11 +1,12 @@
-from django.shortcuts import render,redirect
-from .models import Posts
+from django.shortcuts import render,redirect, get_object_or_404
+from .models import Posts,Rates
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import PostsSerializer
-
+from .forms import RateForm
+from django.urls import reverse
 
 def index(request):
     return render(request,'projects/index.html')
@@ -74,6 +75,22 @@ def search_results(request):
     else:
         message = "You have not searched anything.Please ensure you have searched"
         return render(request,'projects/search.html', {"message":message})
+
+class RateCreateView(LoginRequiredMixin,CreateView):
+    model = Rates
+    fields = ['design_rate','usability_rate','content_rate']
+
+    def dispatch(self, request, *args, **kwargs):
+        self.post = get_object_or_404(Posts, pk=kwargs['pk'])
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self,form):
+        form.instance.user = self.request.user
+        form.instance.post = self.post
+        return super().form_invalid(form)
+
+    def get_absolute_url(self):
+        return reverse('', kwargs={'pk':self.pk})        
 
 
  

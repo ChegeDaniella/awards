@@ -34,6 +34,25 @@ class Posts(models.Model):
         title = cls.objects.filter(title__icontains = search_term)
         return title
 
+    @property
+    def design_rate(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.design_rate for r in self.votes.all()]) / self.votes.count()   
+
+    @property
+    def usability_rate(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.usability_rate for r in self.votes.all()]) / self.votes.count()     
+
+    @property
+    def content_rate(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.content_rate for r in self.votes.all()]) / self.votes.count()   
+          
+
 
 class Rates(models.Model):
     ratings= (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)
