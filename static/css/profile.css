@@ -24,7 +24,7 @@ img {
   }
 .name h2 {
     position: absolute;
-    left: 40%;
+    left: 45%;
     top: 20%;
     z-index: 2;   
     color: #ffffff;
@@ -33,14 +33,14 @@ img {
 .contact h3{
     position: absolute;
       z-index: 3;
-      left: 45%;
+      left: 50%;
       top: 36%;
       color: #ffffff;
 }
 .bio p {
     z-index: 4;
-    left: 45%;
-    top: 50%;
+    left: 50%;
+    top: 60%;
     color: #ffffff;
     position: absolute;
 } 
