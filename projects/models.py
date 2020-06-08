@@ -24,9 +24,6 @@ class Posts(models.Model):
         self.delete()  
 
     
-
-
-
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
@@ -70,8 +67,7 @@ class Rates(models.Model):
     usability_rate = models.IntegerField(choices= ratings, default=0)
     content_rate = models.IntegerField(choices= ratings, default=0)
 
-    def __str__(self):
-        self.post
+ 
 
     def save_rates(self):
         self.save()

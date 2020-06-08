@@ -3,14 +3,15 @@
 
 {% block content %}
 {% block styles %}
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{% static 'css/post.css' %}">
 {% endblock %}
 <body>
   
         <div class="home">
             <h1>Awards</h1><i class="fas fa-7x fa-award"></i>
-            <p>Design,Usability, Content</p>
+            <p style="font-family: 'Anton', sans-serif; font: size 60px;">Design,Usability, Content</p>
         </div>
         <br><br>
   <div class="container">        
@@ -21,13 +22,20 @@
                 <div class="card-header">
                     <img src="{{post.image_page.url}}" alt="img">
                 </div>
+                <hr>
                 <div class="card-body">
-                    <p>{{post.title}} </p>
-                    <p>{{post.description}} </p>
+                    <h3>{{post.title}} </h3>
+                    <h4>{{post.description}} </h4>
+                    <h4><a href="{{post.link}}"> Live Link</a </h4>
+
                 </div>
                 <div class="card-footer">
-                    <P>{{post.date_posted}} </P>
+                    <P class="">{{post.date_posted}} </P>
                 </div>
+                <h4>Would you like to rate this website?Click <a href="{% url 'rate-post' post.id%}"> here</a></h4>
+                <h4>As the owner of the post would you like more actions for this post?
+                    <button class="btn btn-success"><a href="{% url 'post-detail' post.id%}"> More actions</a> </button>
+                </h4>
             </div>  
         </div>
         {% if forloop.counter|divisibleby:'3' and not forloop.last %}

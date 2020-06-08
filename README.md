@@ -1,3 +1,8 @@
+# Awards
+
+This application gives a user and a viwere a chance to look at other peoples websites and be able to rate them.A user has to be loged in for them to create a post and be able to edit the post they created
+
+
 ## Getting started
 
 You can be able to clone and run the application on your local machine.
@@ -41,7 +46,7 @@ Ensure that you have installed all the extensions mentioned above in the envirom
 
 After installation the application should be able to render from the local host.On the terminal run command
 
-![Rendered image]()
+![Rendered image](static/img/Screenshot from 2020-06-08 11-49-35.png)
 
 ```
 python3.6 manage.py runserver
@@ -51,7 +56,7 @@ Then click on the http://127.0.0.1:8000 to be able to view your project in the b
 
 ## Live link
 
-https://instaclonedani.herokuapp.com/
+ https://awardscopy.herokuapp.com/
 
 ## Running Test
 
@@ -68,11 +73,14 @@ We run tests to ensure that the of the functions and models we use are doing wha
 In the application we have 3 class test models which go hand in hand with the models in our database.Each model has a save test function.An example
 
 ```
-        def test_save_profile(self):
-            self.new_profile.save_profile()  
+        def test_save_post(self):
+            self.new_user.save()
+            self.new_post.save_posts()
+            post = Posts.objects.all()
+            self.assertTrue(len(post)>0)    
 ```
 
-This test is for testing whether a profile can be saved.
+This test is for testing whether a post has been saved.
 
 ## Built with 
 * [Python](https://docs.python.org/release/3.6.9/tutorial/index.html) This is the language used

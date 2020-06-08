@@ -81,12 +81,12 @@ class RateCreateView(LoginRequiredMixin,CreateView):
     fields = ['design_rate','usability_rate','content_rate']
 
     def dispatch(self, request, *args, **kwargs):
-        self.post = get_object_or_404(Posts, pk=kwargs['pk'])
+        self.Rates = get_object_or_404(Posts, pk=kwargs['pk'])
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self,form):
         form.instance.user = self.request.user
-        form.instance.post = self.post
+        form.instance.post = self.Rates
         return super().form_invalid(form)
 
     def get_absolute_url(self):
