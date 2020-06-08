@@ -1,0 +1,46 @@
+body {
+    background-color: #240046;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.low-box {
+    border: 1px solid;
+    box-shadow: 5px 10px 8px #000000;
+    height: 480px;
+    width: 730px;
+    margin-left: 30%;
+    margin-top: 4%;
+    background-image: linear-gradient(#240046,#9d4edd);
+}
+img {
+    position: absolute;
+    left: 17%;
+    top: 13%;
+    z-index: 1;
+    box-shadow: 5px 10px 8px #000000;
+  }
+.name h2 {
+    position: absolute;
+    left: 45%;
+    top: 20%;
+    z-index: 2;   
+    color: #ffffff;
+    font-size: 72px;
+}
+.contact h3{
+    position: absolute;
+      z-index: 3;
+      left: 50%;
+      top: 36%;
+      color: #ffffff;
+}
+.bio p {
+    z-index: 4;
+    left: 50%;
+    top: 60%;
+    color: #ffffff;
+    position: absolute;
+} 

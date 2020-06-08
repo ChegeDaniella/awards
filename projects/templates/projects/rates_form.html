@@ -1,0 +1,19 @@
+{% extends 'projects/base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <h3>Vote for your favourite projects</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="form-group">
+            <button type="submit" value="vote">Rate</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

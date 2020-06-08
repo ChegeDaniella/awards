@@ -1,0 +1,27 @@
+{%extends 'projects/base.html'%} 
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            {% if posts%}
+            <h2>Found {{ posts|length }} of searched term {{message}}</h2>
+          {% else %}
+            <h2> Found 0 posts for the search term {{message}}</h2>
+          {% endif %}
+
+          {% if posts %}
+          {% for post in posts %}
+            
+                <h1>{{post.title}}</h1>
+                <h5>{{post.description}} </h5>
+            
+          {% endfor %}
+        {% endif %}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock%}
