@@ -22,7 +22,9 @@ class Posts(models.Model):
 
     def delete_posts(self):
         self.delete()  
-     
+
+    
+
 
 
     def save(self, *args, **kwargs):
