@@ -46,7 +46,8 @@ Ensure that you have installed all the extensions mentioned above in the envirom
 
 After installation the application should be able to render from the local host.On the terminal run command
 
-![Rendered image](static/img/Screenshot from 2020-06-08 11-49-35.png)
+![Rendered image](static/img/home2.png)
+
 
 ```
 python3.6 manage.py runserver
