@@ -55,9 +55,7 @@ python3.6 manage.py runserver
 
 Then click on the http://127.0.0.1:8000 to be able to view your project in the browser
 
-## Live link
 
- https://awardscopy.herokuapp.com/
 
 ## Running Test
 
